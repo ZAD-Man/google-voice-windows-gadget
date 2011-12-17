@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using Google.Voice.Extensions;
 
-namespace Google.Voice
+namespace Google.Voice.Web
 {
     public class Result
     {

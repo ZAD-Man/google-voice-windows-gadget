@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Google.Voice.Entities;
 
-namespace Google.Voice
+namespace Google.Voice.Entities
 {
     public class VariableCollection : List<Variable>
     {

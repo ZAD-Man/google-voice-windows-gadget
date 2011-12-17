@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using Google.Voice;
 
 namespace WpfApplication1
 {
@@ -19,14 +8,19 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Google.Voice.GoogleVoice voice = new GoogleVoice();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void Submit_Click(object sender, RoutedEventArgs e)
         {
-
+            string _userName = UsernameField.Text;
+            string _password = PasswordField.Password;
+            voice.Login(_userName, _password);
         }
+
+
     }
 }

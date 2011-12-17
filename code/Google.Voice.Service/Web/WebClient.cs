@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Google.Voice.Entities;
 using Google.Voice.Extensions;
 
 namespace Google.Voice.Web

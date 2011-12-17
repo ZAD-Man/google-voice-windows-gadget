@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{966D6C8E-D59E-4BEF-99C7-0C4AD0627688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Voice", "Google.Voice.Service\Google.Voice.csproj", "{5391A007-087E-4BFF-8101-6F53F3220E61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleVoice", "Google.Voice.Service\GoogleVoice.csproj", "{5391A007-087E-4BFF-8101-6F53F3220E61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -81,6 +81,21 @@
             Serializes an object into a JSON string
             </summary>
         </member>
+        <member name="P:Google.Voice.Entities.PhoneNumber.raw">
+            <summary>
+            Raw phone number
+            </summary>
+        </member>
+        <member name="P:Google.Voice.Entities.PhoneNumber.formatted">
+            <summary>
+            Formatted phone number
+            </summary>
+        </member>
+        <member name="P:Google.Voice.Entities.PhoneNumber.dnd">
+            <summary>
+            Flag for "DO-NOT-DISTURB"
+            </summary>
+        </member>
         <member name="M:Google.Voice.GoogleVoice.#ctor">
             <summary>
             Creates a new instance of the GoogleVoice service 
@@ -93,7 +108,7 @@
             parameter
             </summary>
         </member>
-        <member name="M:Google.Voice.GoogleVoice.CheckRelogin(Google.Voice.Web.IGVRequestResult,Google.Voice.Result)">
+        <member name="M:Google.Voice.GoogleVoice.CheckRelogin(Google.Voice.Web.IGVRequestResult,Google.Voice.Web.Result)">
             <summary>
             Checks the IGVRequestResult
             </summary>
@@ -103,7 +118,7 @@
             Performs a login to Google Voice
             </summary>
         </member>
-        <member name="M:Google.Voice.GoogleVoice.ExecuteLogin(System.String,System.String,Google.Voice.VariableCollection)">
+        <member name="M:Google.Voice.GoogleVoice.ExecuteLogin(System.String,System.String,Google.Voice.Entities.VariableCollection)">
             <summary>
             Executes the secondary process of POSTing login credentials 
             </summary>
@@ -254,21 +269,6 @@
         <member name="P:Google.Voice.GoogleVoice.LoginParameters">
             <summary>
             Login parameters used for login requests
-            </summary>
-        </member>
-        <member name="P:Google.Voice.Entities.PhoneNumber.raw">
-            <summary>
-            Raw phone number
-            </summary>
-        </member>
-        <member name="P:Google.Voice.Entities.PhoneNumber.formatted">
-            <summary>
-            Formatted phone number
-            </summary>
-        </member>
-        <member name="P:Google.Voice.Entities.PhoneNumber.dnd">
-            <summary>
-            Flag for "DO-NOT-DISTURB"
             </summary>
         </member>
     </members>

@@ -24,7 +24,7 @@
             </TabItem>
             <TabItem Header="Messages">
                 <ScrollViewer Name="MessageScroll">
-                    <Grid Name="MessagePanel">
+                    <Grid Name="MessageGrid">
                         
                     </Grid>
                 </ScrollViewer>

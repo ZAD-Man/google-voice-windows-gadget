@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Google.Voice;
 using System.Windows.Controls;
+using Google.Voice.Web;
 
 namespace WpfApplication1
 {
@@ -19,13 +21,35 @@ namespace WpfApplication1
         {
             string _userName = UsernameField.Text;
             string _password = PasswordField.Password;
-            voice.Login(_userName, _password);
+            LoginResult result = voice.Login(_userName, _password);
+            var newResult = !result.RequiresRelogin;
+            MessageBox.Show(newResult.ToString());
+            closeTabItem(loginTab);
         }
 
 
 
-        private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void closeTabItem(TabItem item)
         {
+            if (item != null)
+            {
+                // find the parent tab control
+                TabControl tabControl = item.Parent as TabControl;
+                if (tabControl != null)
+                    tabControl.Items.Remove(item); // remove tabItem
+            }
+        }
+
+
+
+        private void SendTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            string phoneNr = DestinationNumber.Text;
+            string message = messageField.Text;
+            bool isSent = voice.SMS(phoneNr, message);
+            MessageBox.Show(isSent.ToString());
+            DestinationNumber.Clear();
+            messageField.Clear();
 
         }
     }

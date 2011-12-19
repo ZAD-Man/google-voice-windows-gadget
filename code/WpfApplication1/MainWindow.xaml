@@ -3,29 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="AwesomeGoogleVoiceThingy" Height="350" Width="525">
     <Grid>
-        <TabControl Height="311" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="503" SelectionChanged="tabControl1_SelectionChanged">
-            <TabItem Header="Login" Name="tabItem1">
+        <TabControl Height="311" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="503" >
+            <TabItem Header="Login" Name="loginTab">
                 <Grid>
-                    <TextBox Name ="UsernameField" Height="23" HorizontalAlignment="Left" Margin="297,70,0,0" VerticalAlignment="Top" Width="120" />
-                    <PasswordBox Name="PasswordField" Height="23" HorizontalAlignment="Left" Margin="297,135,0,0" VerticalAlignment="Top" Width="120" />
-                    <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="162,65,0,0"  Name="label1" VerticalAlignment="Top"/>
-                    <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="162,0,0,121" Name="label2" VerticalAlignment="Bottom" />
-                    <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="297,194,0,0" Name="SubmitLoginButton" VerticalAlignment="Top" Width="75" Click="Submit_Click" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="74" />
+                        <ColumnDefinition Width="419*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name ="UsernameField" Height="23" HorizontalAlignment="Left" Margin="223,70,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                    <PasswordBox Name="PasswordField" Height="23" HorizontalAlignment="Left" Margin="223,135,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                    <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="88,65,0,0"  Name="label1" VerticalAlignment="Top" Grid.Column="1" />
+                    <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="88,0,0,121" Name="label2" VerticalAlignment="Bottom" Grid.Column="1" />
+                    <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="223,194,0,0" Name="SubmitLoginButton" VerticalAlignment="Top" Width="75" Click="Submit_Click" Grid.Column="1" />
                 </Grid>
             </TabItem>
             <TabItem Header="Send Text">
                 <Grid>
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="267,63,0,0" Name="DestinationNumber" VerticalAlignment="Top" Width="163" />
-                    <TextBox Height="81" HorizontalAlignment="Left" Margin="267,111,0,0" Name="Message" VerticalAlignment="Top" Width="163" VerticalScrollBarVisibility="Visible" />
+                    <TextBox Height="81" HorizontalAlignment="Left" Margin="267,108,0,0" Name="messageField" VerticalAlignment="Top" Width="163" VerticalScrollBarVisibility="Visible" TextWrapping="WrapWithOverflow" AcceptsReturn="True" />
                     <Label Content="Destination Number:" Height="28" HorizontalAlignment="Left" Margin="120,63,0,0" Name="label3" VerticalAlignment="Top" />
                     <Label Content="Message:" Height="28" HorizontalAlignment="Left" Margin="181,0,0,140" Name="label4" VerticalAlignment="Bottom" />
-                    <Button Content="Send" Height="23" HorizontalAlignment="Left" Margin="267,219,0,0" Name="SendTextButton" VerticalAlignment="Top" Width="75" />
+                    <Button Content="Send" Height="23" HorizontalAlignment="Left" Margin="267,219,0,0" Name="SendTextButton" VerticalAlignment="Top" Width="75" Click="SendTextButton_Click" />
                 </Grid>
             </TabItem>
             <TabItem Header="Messages">
                 <ScrollViewer Name="MessageScroll">
                     <Grid Name="MessageGrid">
-                        
+                        <StackPanel>
+                            
+                        </StackPanel>
                     </Grid>
                 </ScrollViewer>
             </TabItem>

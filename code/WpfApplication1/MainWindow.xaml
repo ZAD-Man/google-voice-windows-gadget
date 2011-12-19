@@ -19,11 +19,21 @@
             </TabItem>
             <TabItem Header="Send Text">
                 <Grid>
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="267,63,0,0" Name="DestinationNumber" VerticalAlignment="Top" Width="163" />
-                    <TextBox Height="81" HorizontalAlignment="Left" Margin="267,108,0,0" Name="messageField" VerticalAlignment="Top" Width="163" VerticalScrollBarVisibility="Visible" TextWrapping="WrapWithOverflow" AcceptsReturn="True" />
-                    <Label Content="Destination Number:" Height="28" HorizontalAlignment="Left" Margin="120,63,0,0" Name="label3" VerticalAlignment="Top" />
-                    <Label Content="Message:" Height="28" HorizontalAlignment="Left" Margin="181,0,0,140" Name="label4" VerticalAlignment="Bottom" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="176,63,0,0" Name="DestinationNumber" VerticalAlignment="Top" Width="166"
+                        IsEditable="True" ItemsSource="{Binding Path = FilteredResults}"
+                  DisplayMemberPath="key"
+                  SelectedValuePath="key"
+                  SelectedValue="{Binding Path=FilteredResults}" SelectionChanged="DestinationNumber_SelectionChanged">
+                        <ComboBox.ItemBindingGroup>
+                            <BindingGroup/>
+                        </ComboBox.ItemBindingGroup>
+
+                    </ComboBox>
+                    <TextBox Height="81" HorizontalAlignment="Left" Margin="176,108,0,0" Name="messageField" VerticalAlignment="Top" Width="254" VerticalScrollBarVisibility="Visible" TextWrapping="WrapWithOverflow" AcceptsReturn="True" />
+                    <Label Content="Destination Number:" Height="28" HorizontalAlignment="Left" Margin="50,63,0,0" Name="label3" VerticalAlignment="Top" />
+                    <Label Content="Message:" Height="28" HorizontalAlignment="Left" Margin="111,0,0,143" Name="label4" VerticalAlignment="Bottom" />
                     <Button Content="Send" Height="23" HorizontalAlignment="Left" Margin="267,219,0,0" Name="SendTextButton" VerticalAlignment="Top" Width="75" Click="SendTextButton_Click" />
+                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="176,35,0,0" Name="NumberFormatBlock" Text="(xxx) xxx-xxxx" VerticalAlignment="Top" Width="75" Foreground="#B1000000" />
                 </Grid>
             </TabItem>
             <TabItem Header="Messages">

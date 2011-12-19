@@ -1,7 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
-using Google.Voice;
 using System.Windows.Controls;
+using Google.Voice;
+using Google.Voice.Entities;
 using Google.Voice.Web;
 
 namespace WpfApplication1
@@ -11,7 +14,8 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Google.Voice.GoogleVoice voice = new GoogleVoice();
+        private readonly GoogleVoice voice = new GoogleVoice();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -22,24 +26,21 @@ namespace WpfApplication1
             string _userName = UsernameField.Text;
             string _password = PasswordField.Password;
             LoginResult result = voice.Login(_userName, _password);
-            var newResult = !result.RequiresRelogin;
+            bool newResult = !result.RequiresRelogin;
             MessageBox.Show(newResult.ToString());
             closeTabItem(loginTab);
         }
-
-
 
         private void closeTabItem(TabItem item)
         {
             if (item != null)
             {
                 // find the parent tab control
-                TabControl tabControl = item.Parent as TabControl;
+                var tabControl = item.Parent as TabControl;
                 if (tabControl != null)
                     tabControl.Items.Remove(item); // remove tabItem
             }
         }
-
 
 
         private void SendTextButton_Click(object sender, RoutedEventArgs e)
@@ -48,9 +49,24 @@ namespace WpfApplication1
             string message = messageField.Text;
             bool isSent = voice.SMS(phoneNr, message);
             MessageBox.Show(isSent.ToString());
-            DestinationNumber.Clear();
             messageField.Clear();
-
         }
+
+        private ObservableCollection<Contact> FilterResult = new ObservableCollection<Contact>();
+
+        private void DestinationNumber_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Contact contact = new Contact();
+
+            string key = DestinationNumber.Text;
+            foreach (var v in voice.GetContacts())
+            {
+                if (contact.name.Contains(key) || contact.phoneNumber.Contains(key))
+                {
+                    FilterResult.Add(v.Value);
+                }
+            }
+        }
+
     }
 }

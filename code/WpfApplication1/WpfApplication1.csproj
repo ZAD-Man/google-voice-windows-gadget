@@ -79,10 +79,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ContactContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageContainer.xaml.cs">
       <DependentUpon>MessageContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactContainer.xaml.cs">
+      <DependentUpon>ContactContainer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

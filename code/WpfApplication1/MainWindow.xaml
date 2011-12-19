@@ -21,8 +21,8 @@
                 <Grid>
                     <ComboBox Height="23" HorizontalAlignment="Left" Margin="176,63,0,0" Name="DestinationNumber" VerticalAlignment="Top" Width="166"
                         IsEditable="True" ItemsSource="{Binding Path = FilteredResults}"
-                  DisplayMemberPath="key"
-                  SelectedValuePath="key"
+                  DisplayMemberPath="DestinationNumber"
+                  SelectedValuePath="DestinationNumber"
                   SelectedValue="{Binding Path=FilteredResults}" SelectionChanged="DestinationNumber_SelectionChanged">
                         <ComboBox.ItemBindingGroup>
                             <BindingGroup/>

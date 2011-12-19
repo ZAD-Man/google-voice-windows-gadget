@@ -56,12 +56,10 @@ namespace WpfApplication1
 
         private void DestinationNumber_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Contact contact = new Contact();
-
             string key = DestinationNumber.Text;
             foreach (var v in voice.GetContacts())
             {
-                if (contact.name.Contains(key) || contact.phoneNumber.Contains(key))
+                if (v.Value.name.Contains(key) || v.Value.phoneNumber.Contains(key))
                 {
                     FilterResult.Add(v.Value);
                 }

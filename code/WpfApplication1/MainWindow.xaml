@@ -1,92 +1,46 @@
 ﻿<Window x:Class="WpfApplication1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=mscorlib"
         Title="AwesomeGoogleVoiceThingy" Height="350" Width="525">
     <Grid>
         <TabControl Height="311" HorizontalAlignment="Left" Name="tabControl1" VerticalAlignment="Top" Width="503" >
             <TabItem Header="Login" Name="loginTab">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="74" />
+                       <ColumnDefinition Width="74" />
                         <ColumnDefinition Width="419*" />
                     </Grid.ColumnDefinitions>
                     <TextBox Name ="UsernameField" Height="23" HorizontalAlignment="Left" Margin="223,70,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" />
                     <PasswordBox Name="PasswordField" Height="23" HorizontalAlignment="Left" Margin="223,135,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" />
                     <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="88,65,0,0"  Name="label1" VerticalAlignment="Top" Grid.Column="1" />
                     <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="88,0,0,121" Name="label2" VerticalAlignment="Bottom" Grid.Column="1" />
-                    <Label Content="Error: Wrong username or password" Height="28" HorizontalAlignment="Left" Margin="200,70,0,93" Name="LoginError" VerticalAlignment="Bottom" Grid.Column="1" Visibility="Hidden"/>
                     <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="223,194,0,0" Name="SubmitLoginButton" VerticalAlignment="Top" Width="75" Click="Submit_Click" Grid.Column="1" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Send Text" Focusable="False" Name="TextTab">
+            <TabItem Header="Send Text" Name="SendTab">
                 <Grid>
-                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="176,63,0,0" Name="DestinationNumber" VerticalAlignment="Top" Width="166"
-                        IsEditable="True" ItemsSource="{Binding Path = FilteredResults}"
-                  DisplayMemberPath="DestinationNumber"
-                  SelectedValuePath="DestinationNumber"
-                  SelectedValue="{Binding Path=FilteredResults}" SelectionChanged="DestinationNumber_SelectionChanged">
-                        <ComboBox.ItemBindingGroup>
-                            <BindingGroup/>
-                        </ComboBox.ItemBindingGroup>
-
-                    </ComboBox>
-                    <TextBox Height="81" HorizontalAlignment="Left" Margin="176,108,0,0" Name="messageField" VerticalAlignment="Top" Width="254" VerticalScrollBarVisibility="Visible" TextWrapping="WrapWithOverflow" AcceptsReturn="True" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="187*" />
+                        <ColumnDefinition Width="306*" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Height="23"  SelectionChanged="comboBox1_SelectionChanged"  HorizontalAlignment="Left" Margin="176,63,0,0" Name="DestinationNumber" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+                    <TextBox Height="81" HorizontalAlignment="Left" Margin="176,108,0,0" Name="messageField" VerticalAlignment="Top" Width="254" VerticalScrollBarVisibility="Visible" TextWrapping="WrapWithOverflow" AcceptsReturn="True" Grid.ColumnSpan="2" />
                     <Label Content="Destination Number:" Height="28" HorizontalAlignment="Left" Margin="50,63,0,0" Name="label3" VerticalAlignment="Top" />
                     <Label Content="Message:" Height="28" HorizontalAlignment="Left" Margin="111,0,0,143" Name="label4" VerticalAlignment="Bottom" />
-                    <Button Content="Send" Height="23" HorizontalAlignment="Left" Margin="267,219,0,0" Name="SendTextButton" VerticalAlignment="Top" Width="75" Click="SendTextButton_Click" />
-                    <TextBlock Height="22" HorizontalAlignment="Left" Margin="176,35,0,0" Name="NumberFormatBlock" Text="(xxx) xxx-xxxx" VerticalAlignment="Top" Width="75" Foreground="#B1000000" />
+                    <Button Content="Send" Height="23" HorizontalAlignment="Left" Margin="80,219,0,0" Name="SendTextButton" VerticalAlignment="Top" Width="75" Click="SendTextButton_Click" Grid.Column="1" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Messages" Focusable="False" Name="MessagesTab">
+            <TabItem Header="Messages" Name="MessageTab">
                 <ScrollViewer Name="MessageScroll">
-                    <StackPanel>
-                        <Grid Name="MessageButtonGrid">
-                            <Button Content="Last Page" Height="23" HorizontalAlignment="Left" Margin="0,0,0,0" Name="LastPageButton" VerticalAlignment="Top" Width="75" Click="LastPageButton_Click" />
-                            <Button Content="Refresh" Height="23" HorizontalAlignment="Center" Margin="0,0,0,0" Name="RefreshButton" VerticalAlignment="Top" Width="75" Click="RefreshButton_Click" />
-                            <Button Content="Next Page" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" Name="NextPageButton" VerticalAlignment="Top" Width="75" Click="NextPageButton_Click" />
-                        </Grid>
-                        <Grid Name="Text1Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber1" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message1" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text2Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber2" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message2" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text3Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber3" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message3" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text4Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber4" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message4" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text5Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber5" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message5" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text6Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber6" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message6" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text7Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber7" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message7" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text8Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber8" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message8" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text9Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber9" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message9" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                        <Grid Name="Text10Grid" Visibility="Hidden">
-                            <Label Content="Unknown" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="ContactNumber10" VerticalAlignment="Top" Width="353" />
-                            <Label Content="No Message" Height="102" HorizontalAlignment="Left" Margin="12,33,0,0" Name="Message10" VerticalAlignment="Top" Width="353" />
-                        </Grid>
-                    </StackPanel>
+                    <Grid Name="MessageGrid">
+                        <StackPanel></StackPanel>
+                    </Grid>
                 </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Contacts" Name="ContactTab">
+                <Grid>
+                    <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="212,30,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

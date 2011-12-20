@@ -18,7 +18,7 @@
                     <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="223,194,0,0" Name="SubmitLoginButton" VerticalAlignment="Top" Width="75" Click="Submit_Click" Grid.Column="1" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Send Text" Name="SendTab" Focusable="False">
+            <TabItem Header="Send Text" Name="SendTab">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="187*" />
@@ -31,7 +31,7 @@
                     <Button Content="Send" Height="23" HorizontalAlignment="Left" Margin="80,219,0,0" Name="SendTextButton" VerticalAlignment="Top" Width="75" Click="SendTextButton_Click" Grid.Column="1" />
                 </Grid>
             </TabItem>
-            <TabItem Header="Messages" Focusable="False" Name="MessagesTab">
+            <TabItem Header="Messages" Name="MessagesTab">
                 <ScrollViewer Name="MessageScroll">
                     <StackPanel>
                         <Grid Name="MessageButtonGrid">
@@ -82,7 +82,7 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="Contacts" Name="ContactTab" Focusable="False">
+            <TabItem Header="Contacts" Name="ContactTab">
                 <Grid>
                     <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="212,30,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
                 </Grid>

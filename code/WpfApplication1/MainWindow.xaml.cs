@@ -13,7 +13,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static uint _textPageNumber;
+        private static uint _textPageNumber = 1;
         private readonly GoogleVoice voice = new GoogleVoice();
 
         public MainWindow()

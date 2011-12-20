@@ -29,7 +29,7 @@ namespace WpfApplication1
             var objDLL = new List<DropDownList>();
             foreach (var v in voice.GetContacts())
             {
-                objDLL.Add(new DropDownList {Item = v.Value.name, value = v.Value.displayNumber});
+                objDLL.Add(new DropDownList {Item = v.Value.name, Value = v.Value.displayNumber});
             }
             return objDLL;
         }
@@ -41,9 +41,7 @@ namespace WpfApplication1
             {
                 string userName = UsernameField.Text;
                 string password = PasswordField.Password;
-                LoginResult result = voice.Login(userName, password);
-                bool newResult = !result.RequiresRelogin;
-                MessageBox.Show(newResult.ToString());
+                voice.Login(userName, password);
                 closeTabItem(loginTab);
                 SendTab.IsEnabled = true;
                 MessagesTab.IsEnabled = true;
@@ -54,8 +52,8 @@ namespace WpfApplication1
             }
             catch (Exception)
             {
-                //TODO: Will add something next commit
-                throw;
+                LoginError.Visibility = Visibility.Visible;
+                PasswordField.Clear();
             }
         }
 
@@ -198,7 +196,7 @@ namespace WpfApplication1
         public class DropDownList
         {
             public String Item { get; set; }
-            public String value { get; set; }
+            public String Value { get; set; }
         }
 
         #endregion

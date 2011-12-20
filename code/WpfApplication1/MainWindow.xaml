@@ -14,6 +14,7 @@
                     <PasswordBox Name="PasswordField" Height="23" HorizontalAlignment="Left" Margin="223,135,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" />
                     <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="88,65,0,0"  Name="label1" VerticalAlignment="Top" Grid.Column="1" />
                     <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="88,0,0,121" Name="label2" VerticalAlignment="Bottom" Grid.Column="1" />
+                    <Label Content="Error: Wrong username or password" Height="28" HorizontalAlignment="Left" Margin="200,70,0,93" Name="LoginError" VerticalAlignment="Bottom" Grid.Column="1" Visibility="Hidden"/>
                     <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="223,194,0,0" Name="SubmitLoginButton" VerticalAlignment="Top" Width="75" Click="Submit_Click" Grid.Column="1" />
                 </Grid>
             </TabItem>

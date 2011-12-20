@@ -4,6 +4,21 @@
         <name>Google.Voice.Service</name>
     </assembly>
     <members>
+        <member name="P:Google.Voice.Entities.PhoneNumber.raw">
+            <summary>
+            Raw phone number
+            </summary>
+        </member>
+        <member name="P:Google.Voice.Entities.PhoneNumber.formatted">
+            <summary>
+            Formatted phone number
+            </summary>
+        </member>
+        <member name="P:Google.Voice.Entities.PhoneNumber.dnd">
+            <summary>
+            Flag for "DO-NOT-DISTURB"
+            </summary>
+        </member>
         <member name="M:Google.Voice.Extensions.Methods.Dump(System.Object,System.Int32)">
             <summary>
             Dumps object data into a string
@@ -254,21 +269,6 @@
         <member name="P:Google.Voice.GoogleVoice.LoginParameters">
             <summary>
             Login parameters used for login requests
-            </summary>
-        </member>
-        <member name="P:Google.Voice.Entities.PhoneNumber.raw">
-            <summary>
-            Raw phone number
-            </summary>
-        </member>
-        <member name="P:Google.Voice.Entities.PhoneNumber.formatted">
-            <summary>
-            Formatted phone number
-            </summary>
-        </member>
-        <member name="P:Google.Voice.Entities.PhoneNumber.dnd">
-            <summary>
-            Flag for "DO-NOT-DISTURB"
             </summary>
         </member>
     </members>
